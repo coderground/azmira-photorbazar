@@ -2,12 +2,14 @@
 import React, { useState } from 'react';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
+import useFirebase from '../../../hooks/useFirebase';
 
 
 
 
 
 const Login = () => {
+const {singInWithGoogle} = useFirebase();
     
     
     const[email,setEmail]= useState('');
@@ -41,6 +43,9 @@ const Login = () => {
                 </Form.Group>
                 <Button onSubmit={handleFormSubmit} variant="primary" type="submit">
                     Submit
+                </Button>
+                <Button onClick={singInWithGoogle} variant="primary" type="submit">
+                    Google Sign In
                 </Button>
             </Form>
         </div>

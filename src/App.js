@@ -11,8 +11,10 @@ import Checkout from './components/Home/Checkout/Checkout';
 import Blogs from './components/Home/Blogs/Blogs';
 import About from './components/Home/About/About';
 import NotFound from './components/Home/NotFound/NotFound';
+import useFirebase from './hooks/useFirebase';
 
 function App() {
+  const{user,handleSignout}=useFirebase();
   return (
     <div className="App">
       
@@ -28,7 +30,13 @@ function App() {
                   <Link className='p-3' to="/checkout">Checkout</Link>
                   <Link className='p-3' to="/blogs">Blogs</Link>
                   <Link className='p-3' to="/about">About Me</Link>
-                  <Link className='p-3' to="/login">Login</Link>
+                  {
+                    user?.uid 
+                    ?
+                    <button className='btn btn-primary text-white' onClick={handleSignout}>sign out</button>
+                    :
+                    <Link className='p-3' to="/login">Login</Link>
+                    }
                 </Nav.Link>
               </Nav>
             </Navbar.Collapse>
