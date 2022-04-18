@@ -11,17 +11,26 @@ import Checkout from './components/Home/Checkout/Checkout';
 import Blogs from './components/Home/Blogs/Blogs';
 import About from './components/Home/About/About';
 import NotFound from './components/Home/NotFound/NotFound';
-import useFirebase from './hooks/useFirebase';
+// import useFirebase from './hooks/useFirebase';
+import RequireAuth from './components/Home/RequireAuth/RequireAuth';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import app from './firebase.init';
+import { getAuth, signOut } from 'firebase/auth';
+
+
+
+const auth =getAuth(app);
 
 function App() {
-  const{user,handleSignout}=useFirebase();
+  const[user]= useAuthState(auth);
+  // const { user, handleSignout } = useFirebase();
   return (
     <div className="App">
-      
+
       <nav>
         <Navbar bg="light" expand="lg">
           <Container>
-          <Navbar.Brand ><h4>Azmira Photor Bazar</h4></Navbar.Brand>
+            <Navbar.Brand ><h4>Azmira Photor Bazar</h4></Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
               <Nav className="me-auto  ">
@@ -31,12 +40,12 @@ function App() {
                   <Link className='p-3' to="/blogs">Blogs</Link>
                   <Link className='p-3' to="/about">About Me</Link>
                   {
-                    user?.uid 
-                    ?
-                    <button className='btn btn-primary text-white' onClick={handleSignout}>sign out</button>
-                    :
-                    <Link className='p-3' to="/login">Login</Link>
-                    }
+                    user?.uid
+                      ?
+                      <button className='btn btn-primary text-white' onClick={() => signOut(auth)}>sign out</button>
+                      :
+                      <Link className='p-3' to="/login">Login</Link>
+                  }
                 </Nav.Link>
               </Nav>
             </Navbar.Collapse>
@@ -44,12 +53,17 @@ function App() {
         </Navbar>
       </nav>
 
-      
 
-      
+
+
       <Routes>
         <Route path='/' element={<Home></Home>} />
-        <Route path='/checkout' element={<Checkout></Checkout>} />
+        <Route path='/checkout' element={
+          <RequireAuth>
+            <Checkout></Checkout>
+          </RequireAuth>
+
+        } />
         <Route path='/blogs' element={<Blogs></Blogs>} />
         <Route path='/about' element={<About></About>} />
         <Route path='/login' element={<Login></Login>} />
