@@ -10,6 +10,7 @@ import { Link } from 'react-router-dom';
 import Checkout from './components/Home/Checkout/Checkout';
 import Blogs from './components/Home/Blogs/Blogs';
 import About from './components/Home/About/About';
+import NotFound from './components/Home/NotFound/NotFound';
 
 function App() {
   return (
@@ -18,7 +19,7 @@ function App() {
       <nav>
         <Navbar bg="light" expand="lg">
           <Container>
-            
+          <Navbar.Brand ><h4>Azmira Photor Bazar</h4></Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
               <Nav className="me-auto  ">
@@ -35,15 +36,16 @@ function App() {
         </Navbar>
       </nav>
 
-      <h1 className='p-3'>Azmira Photor Bazar</h1>
+      
 
       
       <Routes>
-        <Route path="/" element={<Home></Home>} />
-        <Route path="/checkout" element={<Checkout></Checkout>} />
-        <Route path="/blogs" element={<Blogs></Blogs>} />
-        <Route path="/about" element={<About></About>} />
-        <Route path="/login" element={<Login></Login>} />
+        <Route path='/' element={<Home></Home>} />
+        <Route path='/checkout' element={<Checkout></Checkout>} />
+        <Route path='/blogs' element={<Blogs></Blogs>} />
+        <Route path='/about' element={<About></About>} />
+        <Route path='/login' element={<Login></Login>} />
+        <Route path='*' element={<NotFound></NotFound>} />
 
       </Routes>
     </div>

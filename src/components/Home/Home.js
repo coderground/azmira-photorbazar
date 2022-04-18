@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { Col, Row } from 'react-bootstrap';
 import Carousel from 'react-bootstrap/Carousel';
 import Card from './Card/Card';
 import './Home.css';
@@ -55,7 +54,7 @@ const Home = () => {
             </Carousel>
 
 
-            <h3 className='mt-5 pt-5 pb-3'>OUR SERVICES</h3>
+            <h3 className='mt-5 pt-5 pb-3 text-center'>OUR SERVICES</h3>
 
 
             <div className='card-group container w-75 gap-4'>
@@ -68,10 +67,17 @@ const Home = () => {
                     ></Card>)
                 }
             </div>
-
-            <footer className='footer mt-5 p-5'>
+            <h3 className='mt-5 pt-5 pb-4 text-center'>OUR Top Photo Details</h3>
+            <div className='container'>
+                <div><img className='top-photo' src="https://images.squarespace-cdn.com/content/v1/503cd08224ac9df583cd7c6f/1504284079290-X9LVM5RJJJSDT0HYSHU5/L1080945.jpg?format=500w" alt="" /></div>
+                <div>
+                    <h5 className='mt-4'>Full Circle Dinner: A Communion of Creatives</h5>
+                    <p>Photography is my life. Ever since I picked up a camera to photograph bike racing as a teenager, I was fascinated by the ability to transform photographs into stories and stories into books. Through worldwide travel, I was guided and drawn to what I love. Today, it is with great gratitude that I continue to pursue the recording of our human condition through photographing life events and serving clients with my passion. My travels have taken me to over 50 countries. I love meeting people and my journey through life has been a wealthy exposure to a wide range of photographic odysseys. I hope I am fortunate to marry my vision with your dream. It would be an honor to tell your story with my photographs and film direction.</p>
+                </div>
+            </div>
+            <footer className='footer mt-5 p-5 text-center'>
                 <h5>Studio 1610 Wyoming Avenue, Scranton, PA, 18509, USA 570.498.3686 inquiry@lettieriphoto.com</h5>
-                <h6>Copyright 2022 AzmiraPhotography</h6>
+                <p>Copyright 2022 AzmiraPhotography</p>
             </footer>
         </div>
     );
