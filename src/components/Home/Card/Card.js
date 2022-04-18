@@ -1,17 +1,18 @@
 import React from 'react';
+import './Card.css';
 
 const Card = ({ cards }) => {
     const { picture, title, text, ratings } = cards;
     return (
-        <div class="row row-cols-1 row-cols-md-3 g-4">
-            <div class="col">
-                <div class="card h-100">
-                    <img src={picture} class="card-img-top" alt="..."/>
-                        <div class="card-body">
-                            <h5 class="card-title">{title}</h5>
-                            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                        </div>
-                     
+        <div>
+            <div className=''>
+                <div className="card h-100 ">
+                    <img src={picture} className="card-img-top photo" alt="..." />
+                    <div className="card-body">
+                        <h5 className="card-title">{title}</h5>
+                        <p className="card-text">{text}</p>
+                        <p className=''>{ratings}</p>
+                    </div>
                 </div>
             </div>
         </div>

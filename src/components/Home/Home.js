@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
+import { Col, Row } from 'react-bootstrap';
 import Carousel from 'react-bootstrap/Carousel';
 import Card from './Card/Card';
+import './Home.css';
 
 
 
@@ -18,7 +20,7 @@ const Home = () => {
                 <Carousel.Item>
                     <img
                         className="d-block w-100"
-                        src="https://images.squarespace-cdn.com/content/v1/503cd08224ac9df583cd7c6f/1582782862842-7GKVGM05QXSTNR8RY81U/LettieriPhoto_PA_WeddingPhotography_123.jpg?format=1500w"
+                        src="https://images.squarespace-cdn.com/content/v1/503cd08224ac9df583cd7c6f/1583254325713-9VLZRD4HUMEBRFWIAQU8/LettieriPhoto_PA_WeddingPhotography_71.jpg?format=1500"
                         alt="First slide"
                     />
                     <Carousel.Caption>
@@ -51,10 +53,14 @@ const Home = () => {
                     </Carousel.Caption>
                 </Carousel.Item>
             </Carousel>
-            <h4 className='mt-5 pt-5'>OUR SERVICES</h4>
-            
-            <div>
-                <h2>data length:{card.length}</h2>
+
+
+            <h3 className='mt-5 pt-5 pb-3'>OUR SERVICES</h3>
+
+
+            <div className='card-group container w-75 gap-4'>
+           
+           
                 {
                     card.map(cards => <Card
                     key={cards.id}
@@ -62,6 +68,7 @@ const Home = () => {
                     ></Card>)
                 }
             </div>
+           
         </div>
     );
 };
