@@ -2,10 +2,10 @@
 import React, { useState } from 'react';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-// import useFirebase from '../../../hooks/useFirebase';
 import { useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import app from '../../../firebase.init';
 import { getAuth } from 'firebase/auth';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 
 
@@ -13,7 +13,16 @@ const auth =getAuth(app);
 
 const Login = () => {
     const[signInWithGoogle]= useSignInWithGoogle(auth)
-// const {singInWithGoogle} = useFirebase();
+    const location = useLocation();
+    const navigate = useNavigate();
+
+    const from = location?.state?.from?.pathName ||'/';
+    const handleGoogleSignIn =()=>{
+        signInWithGoogle()
+        .then(()=>{
+            navigate(from,{replace:true})
+        })
+    }
     
     
     const[email,setEmail]= useState('');
@@ -48,7 +57,7 @@ const Login = () => {
                 <Button onSubmit={handleFormSubmit} variant="primary" type="submit">
                     Submit
                 </Button>
-                <Button onClick={() =>signInWithGoogle()} variant="primary" type="submit">
+                <Button onClick={handleGoogleSignIn} variant="primary" type="submit">
                     Google Sign In
                 </Button>
             </Form>

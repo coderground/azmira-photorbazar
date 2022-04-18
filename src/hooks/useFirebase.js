@@ -6,6 +6,7 @@ import { getAuth,GoogleAuthProvider, onAuthStateChanged, signInWithPopup, signOu
 
 const auth = getAuth(app);
 const googleprovider = new GoogleAuthProvider();
+
 const useFirebase =()=>{
     const[user,setUser] = useState({});
 
