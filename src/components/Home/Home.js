@@ -68,7 +68,11 @@ const Home = () => {
                     ></Card>)
                 }
             </div>
-           
+
+            <footer className='footer mt-5 p-5'>
+                <h5>Studio 1610 Wyoming Avenue, Scranton, PA, 18509, USA 570.498.3686 inquiry@lettieriphoto.com</h5>
+                <h6>Copyright 2022 AzmiraPhotography</h6>
+            </footer>
         </div>
     );
 };
