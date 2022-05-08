@@ -57,7 +57,8 @@ const Login = () => {
                 <Button onSubmit={handleFormSubmit} variant="primary" type="submit">
                     Submit
                 </Button>
-                <Button onClick={handleGoogleSignIn} variant="primary" type="submit">
+                <br />
+                <Button className='mt-2' onClick={handleGoogleSignIn} variant="primary" type="submit">
                     Google Sign In
                 </Button>
             </Form>

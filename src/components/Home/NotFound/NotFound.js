@@ -2,10 +2,10 @@ import React from 'react';
 
 const NotFound = () => {
     return (
-        <div>
-            <h4>This Is Error</h4> 
+        <div className='bg-picture'>
+            <h4 className='text-center text-4xl'>This Is Error</h4> 
             <h2>404</h2>
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzzRjgjEMs3GBFnGgIaDJuKMM-Q4GbJ1admMsAs32mRCWW5X6C-5z8ys2OJGz93fk1h8k&usqp=CAU" alt="" />
+            <img src='https://s.tmimgcdn.com/scr/1200x750/122600/error-page-not-found-illustration_122693-original.jpg'alt="" />
         </div>
     );
 };
